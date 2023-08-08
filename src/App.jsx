@@ -62,22 +62,28 @@ const App = () => {
   };
 
   return (
-    <div className="app">
+    <div className="relative min-h-screen min-w-full flex justify-center items-center">
       {showChat ? (
         <Chat openAIKey={openAIKey} />
       ) : (
-        <div className="overlay">
-          <div className="input-container">
-            <h1>Welcome to NVIDIA Holochat!</h1>
-            <form onSubmit={handleOpenAIKeySubmit}>
+        <div className="absolute top-0 left-0 w-full h-full nvidia-green flex justify-center items-center">
+          <div className="input-container bg-white p-6 border rounded-lg shadow-lg text-center">
+            <h1 className="text-2xl font-bold mb-4 font-black">Welcome to Holochat!</h1>
+            <form className="flex flex-col items-center" onSubmit={handleOpenAIKeySubmit}>
               <input
                 type="text"
                 placeholder="Enter your OpenAI Key"
                 value={openAIKey}
                 onChange={handleOpenAIKeyChange}
+                className="rounded-lg py-2 px-4 mb-4 text-md focus-visible:border-gray-50"
               />
-              {error && <p className="error-message mb-2">{error}</p>}
-              <button type="submit">Submit</button>
+              {error && <p className="text-red-500 mb-4">{error}</p>}
+              <button
+                type="submit"
+                className="nvidia-green text-white cursor-pointer transition-colors py-2 px-4 rounded-lg"
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>

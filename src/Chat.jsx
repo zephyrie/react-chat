@@ -8,7 +8,7 @@ const Chat = ({ openAIKey }) => {
   const messagesEndRef = useRef(null);
 
   const sendMessageToServer = async (userMessage) => {
-    // Simulate an artificial 2-second delay
+    // Simulate a 2-second delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Mock function to simulate sending user message to the server and receiving a response
@@ -73,7 +73,7 @@ const Chat = ({ openAIKey }) => {
   return (
     <div className="chat min-h-screen flex flex-col w-full">
       {/* Header Bar */}
-      <div className="bg-green-500 text-white py-4 px-8 fixed top-0 left-0 w-full font-bold text-center flex items-center justify-between">
+      <div className="nvidia-green text-white py-4 px-8 fixed top-0 left-0 w-full font-bold text-center flex items-center justify-between">
         <div className="flex-1 flex items-center justify-center">
           <span>NVIDIA Holochat</span>
         </div>
@@ -95,14 +95,14 @@ const Chat = ({ openAIKey }) => {
               } px-4 py-2 border-b-1 ${
                 message.isUserMessage
                   ? 'self-end bg-gray-200 text-black text-right'
-                  : 'self-start bg-green-500 text-white'
+                  : 'self-start nvidia-green text-white'
               }`}
             >
               {message.text}
             </div>
           ))}
           {isLoading && (
-            <div className="message server px-4 py-2 self-start bg-green-500 text-white">
+            <div className="message server px-4 py-2 self-start nvidia-green text-white">
               Loading{Array.from({ length: 3 }, (_, i) => '.').join('')}
             </div>
           )}
@@ -122,7 +122,7 @@ const Chat = ({ openAIKey }) => {
           <button
             type="submit"
             className={`ml-4 py-2 px-6 rounded-lg ${
-              isLoading ? 'bg-gray-400 text-gray-600 cursor-not-allowed' : 'bg-green-500 text-white hover:bg-green-600'
+              isLoading ? 'bg-gray-400 text-gray-600 cursor-not-allowed' : 'nvidia-green text-white hover:bg-green-600'
             } focus:outline-none focus:ring focus:border-green-500`}
             disabled={isLoading} // Disable button while loading
           >
